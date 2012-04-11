@@ -31,3 +31,15 @@
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
+[submodule "supertab"]
+	path = supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/vim-notes"]
+	path = bundle/vim-notes
+	url = https://github.com/xolox/vim-notes.git
+[submodule "bundle/sessionman"]
+	path = bundle/sessionman
+	url = https://github.com/vim-scripts/sessionman.vim.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git
