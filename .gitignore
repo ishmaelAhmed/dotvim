@@ -1,2 +1,4 @@
+sessions/**
+bundle/vim-notes/misc/notes/user/**
 .netrwhist
 *.swp
