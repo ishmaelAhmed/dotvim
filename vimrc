@@ -68,7 +68,6 @@ map <leader>tm :tabmove
 
 " Note mappings
 vmap <Leader>ns :NoteFromSelectedText<CR>
-let g:notes_directory = '~/Ubuntu\ One/Notes/'
 "
 " " Uncomment to use Jamis Buck's file opening plugin
 " " map <Leader>t :FuzzyFinderTextMate<Enter>
