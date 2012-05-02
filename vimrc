@@ -3,7 +3,8 @@ set nocompatible                  " Must come first because it changes other opt
 call pathogen#runtime_append_all_bundles() "Loads Bundles using the pathogen plugin.
 "
 syntax enable                     " Turn on syntax highlighting.
-colorscheme molokai               " Set the color Scheme
+set background=dark
+colorscheme solarized               " Set the color Scheme
 "
 runtime macros/matchit.vim        " Load the matchit plugin.
 "
@@ -36,8 +37,8 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 "
-" set nobackup                      " Don't make a backup before overwriting a file.
-" set nowritebackup                 " And again.
+set nobackup                      " Don't make a backup before overwriting a file.
+set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set backupdir=$HOME/.vim/tmp//,.  " Keep swap files in one location
 "
@@ -69,6 +70,8 @@ map <leader>tm :tabmove
 " Note mappings
 vmap <Leader>ns :NoteFromSelectedText<CR>
 "
+" NERDTree mappings
+map <leader>e :NERDTree<cr>
 " " Uncomment to use Jamis Buck's file opening plugin
 " " map <Leader>t :FuzzyFinderTextMate<Enter>
 "
