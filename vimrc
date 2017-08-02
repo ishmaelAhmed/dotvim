@@ -4,8 +4,9 @@ call pathogen#runtime_append_all_bundles() "Loads Bundles using the pathogen plu
 "
 syntax enable                     " Turn on syntax highlighting.
 set background=dark
-colorscheme solarized               " Set the color Scheme
-"
+"colorscheme solarized               " Set the color Scheme
+colorscheme molokai               " Set the color Scheme<br>"
+
 runtime macros/matchit.vim        " Load the matchit plugin.
 "
 filetype plugin on                " Enable Plugins
@@ -46,6 +47,8 @@ set tabstop=4                    " Global tab width.
 set softtabstop=4
 set shiftwidth=4                 " And again, related.
 set noexpandtab                    " Use spaces instead of tabs
+
+set clipboard=unnamed           " Set system clipboard to default register
 
 autocmd FileType python set expandtab
 "
