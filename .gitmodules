@@ -61,3 +61,6 @@
 [submodule "bundle/polymer-ide.vim"]
 	path = bundle/polymer-ide.vim
 	url = https://github.com/webdesus/polymer-ide.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
