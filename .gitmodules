@@ -58,3 +58,6 @@
 [submodule "bundle/vimux"]
 	path = bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "bundle/polymer-ide.vim"]
+	path = bundle/polymer-ide.vim
+	url = https://github.com/webdesus/polymer-ide.vim.git
