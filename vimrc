@@ -80,7 +80,18 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+" vv to generate new vertical split
+ nnoremap <silent> vv <C-w>v
 
+" Vim-tumx
+" " Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
 " Note mappings
 vmap <Leader>ns :NoteFromSelectedText<CR>
 "
