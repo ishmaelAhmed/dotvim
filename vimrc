@@ -113,3 +113,7 @@ map <leader>e :NERDTree<cr>
 " let g:LustyExplorerSuppressRubyWarning = 1)
 "
 let g:LustyExplorerSuppressRubyWarning = 1
+
+" Synstatic settings
+let g:syntastic_javascript_checkers=['eslint']
+
