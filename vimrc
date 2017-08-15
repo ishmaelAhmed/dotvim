@@ -94,7 +94,8 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 " Note mappings
 vmap <Leader>ns :NoteFromSelectedText<CR>
-"
+" Need to map defaults i.e. sym link if I want them to persist elsewhere
+" let g:notes_directories = ['~/Documents/Notes', '~/Google\ Drive/Work_notes/notes']
 " NERDTree mappings
 map <leader>e :NERDTree<cr>
 " " Uncomment to use Jamis Buck's file opening plugin
