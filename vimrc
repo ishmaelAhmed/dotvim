@@ -14,10 +14,6 @@ filetype indent on                " Enable auto indent
 "
 set textwidth=79                  " Auto line break at specified character count
 set nowrap                        " Set text to nowrap
-"
-set nocompatible                  " Must come first because it changes other" options.
-" runtime macros/matchit.vim        " Load the matchit plugin.
-"
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 "
@@ -118,3 +114,6 @@ let g:LustyExplorerSuppressRubyWarning = 1
 " Synstatic settings
 let g:syntastic_javascript_checkers=['eslint']
 
+au FileType javascript nnoremap <buffer> <Leader>f JsBeautify()<cr>
+au FileType json nnoremap <buffer> <Leader>f :call JsonBeautify()<cr>
+au FileType json nnoremap <buffer> <Leader>f :call HtmlBeautify()<cr>

@@ -67,6 +67,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "bundle/vim-autoformat"]
-	path = bundle/vim-autoformat
-	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "bundle/vim-jsbeautify"]
+	path = bundle/vim-jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
