@@ -14,6 +14,7 @@ filetype indent on                " Enable auto indent
 "
 set textwidth=79                  " Auto line break at specified character count
 set nowrap                        " Set text to nowrap
+"
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 "
@@ -48,9 +49,17 @@ set clipboard=unnamed           " Set system clipboard to default register
 
 autocmd FileType python set expandtab
 "
- set laststatus=2                  " Show the status line all the time
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END	
+
+set laststatus=2                  " Show the status line all the time
  " Useful status information at bottom of screen
- set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\%)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\%)%P
 "
 " Date insert mappings
 :nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
@@ -91,7 +100,7 @@ map <Leader>vz :VimuxZoomRunner<CR>
 " Note mappings
 vmap <Leader>ns :NoteFromSelectedText<CR>
 " Need to map defaults i.e. sym link if I want them to persist elsewhere
-" let g:notes_directories = ['~/Documents/Notes', '~/Google\ Drive/Work_notes/notes']
+ let g:notes_directories = ['~/dotvim/notes']
 " NERDTree mappings
 map <leader>e :NERDTree<cr>
 " " Uncomment to use Jamis Buck's file opening plugin
