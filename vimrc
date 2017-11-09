@@ -40,9 +40,9 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set backupdir=$HOME/.vim/tmp//,.  " Keep swap files in one location
 "
-set tabstop=4                    " Global tab width.
-set softtabstop=4
-set shiftwidth=4                 " And again, related.
+set tabstop=2                    " Global tab width.
+set softtabstop=2
+set shiftwidth=2                 " And again, related.
 set noexpandtab                    " Use spaces instead of tabs
 
 set clipboard=unnamed           " Set system clipboard to default register
@@ -64,29 +64,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\%{exists('*CapsLockStatusline')?CapsLoc
 " Date insert mappings
 :nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 :inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
-" " Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
 "Easier splinavagations
 "
-"We can use different key mappings for easy navigation between splits to save a
-"keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-set splitbelow
-set splitright
-" vv to generate new vertical split
- nnoremap <silent> vv <C-w>v
 
 " Vim-tumx
 " " Prompt for a command to run
@@ -101,10 +80,6 @@ map <Leader>vz :VimuxZoomRunner<CR>
 vmap <Leader>ns :NoteFromSelectedText<CR>
 " Need to map defaults i.e. sym link if I want them to persist elsewhere
  let g:notes_directories = ['~/dotvim/notes']
-" NERDTree mappings
-map <leader>e :NERDTree<cr>
-" " Uncomment to use Jamis Buck's file opening plugin
-" " map <Leader>t :FuzzyFinderTextMate<Enter>
 "
 " Vim needs to be compiled with Ruby for LustyExplorer to work; here are the
 " instructions.
@@ -120,9 +95,4 @@ map <leader>e :NERDTree<cr>
 "
 let g:LustyExplorerSuppressRubyWarning = 1
 
-" Synstatic settings
-let g:syntastic_javascript_checkers=['eslint']
 
-au FileType javascript nnoremap <buffer> <Leader>f JsBeautify()<cr>
-au FileType json nnoremap <buffer> <Leader>f :call JsonBeautify()<cr>
-au FileType json nnoremap <buffer> <Leader>f :call HtmlBeautify()<cr>
