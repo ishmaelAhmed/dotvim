@@ -1,0 +1,8 @@
+root = true
+
+[**.html]
+;vim:max_char=300
+indent_style = space
+indent_size = 2
+space_after_anon_function = true
+end_with_newline = false

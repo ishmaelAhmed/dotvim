@@ -94,6 +94,7 @@ Plug  'webdesus/polymer-ide.vim', { 'do': 'npm install' }
 "
 " Plug 'morhetz/gruvbox'
 " Plug 'mhartington/oceanic-next'
+Plug 'tomasiser/vim-code-dark'
 "
 "
 " " *************************
@@ -145,8 +146,8 @@ Plug  'webdesus/polymer-ide.vim', { 'do': 'npm install' }
 "
  Plug 'chemzqm/vim-jsx-improve', { 'for': [ 'javascript', 'js', 'jsx' ]}
 "
-" " Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'js', 'jsx' ]}
-" " Plug 'othree/es.next.syntax.vim', { 'for': [ 'javascript', 'js', 'jsx' ]}
+ Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'js', 'jsx' ]}
+ Plug 'othree/es.next.syntax.vim', { 'for': [ 'javascript', 'js', 'jsx' ]}
 "
 " SCSS and CSS syntax highlighting
 	if v:version < 704
@@ -159,10 +160,20 @@ Plug  'webdesus/polymer-ide.vim', { 'do': 'npm install' }
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'skwp/vim-html-escape', {'for': ['html']}
 
-" " Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'js', 'jsx' ]}
+
+  Plug 'pangloss/vim-javascript', { 'for': [ 'javascript', 'js', 'jsx' ]}
 " "Base syntax highlighter
-" " Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'js', 'jsx' ]}
-"
+  Plug 'mxw/vim-jsx', { 'for': [ 'javascript', 'js', 'jsx' ]}
+
+
+" post install (yarn install | npm install) then load plugin only for editing
+" supported files
+	Plug 'prettier/vim-prettier', {
+			\ 'do': 'npm install',
+			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }"
+
+" Js buetify code formatter
+  Plug 'maksimr/vim-jsbeautify',{'do': 'git submodule update --init --recursive'}
 
 call plug#end()
 
@@ -171,7 +182,8 @@ call plug#end()
 syntax enable                     " Turn on syntax highlighting.
 set background=dark
 "colorscheme solarized               " Set the color Scheme
-colorscheme molokai               " Set the color Scheme<br>"
+"colorscheme molokai               " Set the color Scheme<br>"
+colorscheme codedark               " Set the color Scheme<br>"
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 "
@@ -221,33 +233,33 @@ set clipboard=unnamed           " Set system clipboard to default register
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" Polymer ide
+"" Polymer ide
+""
+"	 autocmd Filetype html nmap <F12> :call polymer_ide#GoToDefinition(':vs')<CR>
+"	 autocmd Filetype html imap <F12> :call polymer_ide#GoToDefinition(':vs')<CR>
 "
-	 autocmd Filetype html nmap <F12> :call polymer_ide#GoToDefinition(':vs')<CR>
-	 autocmd Filetype html imap <F12> :call polymer_ide#GoToDefinition(':vs')<CR>
-
-" Show documentation about tag or attribute using {F1} key: >
-
-	 autocmd Filetype html imap nmap <F1> :call polymer_ide#ShowDocumentation()<CR>
-	 autocmd Filetype html imap imap <F1> :call polymer_ide#ShowDocumentation()<CR>
-
-" Show error under cursor {F2} key: >
-
-	 autocmd Filetype html nmap <F2> :call polymer_ide#ShowError(line('.'))<CR>
-	 autocmd Filetype html imap <F2> :call polymer_ide#ShowError(line('.'))<CR>
-
-" Show next error under cursor {Ctrl}, {Alt} and {down} keys: >
-
-	 autocmd Filetype html nmap <C-A-DOWN> :call polymer_ide#NextError()<CR>
-	 autocmd Filetype html imap <C-A-DOWN> :call polymer_ide#NextError()<CR>
-
-" Show previous error under cursor {Ctrl}, {Alt} and {up} keys: >
-
-	 autocmd Filetype html nmap <C-A-UP> :call polymer_ide#PreviousError()<CR>
-	 autocmd Filetype html imap <C-A-UP> :call polymer_ide#PreviousError()<CR>
-
-" Enable Syntastic support. 
-" Careful: For successful work required installed plugin Syntastic   >
+"" Show documentation about tag or attribute using {F1} key: >
+"
+"	 autocmd Filetype html imap nmap <F1> :call polymer_ide#ShowDocumentation()<CR>
+"	 autocmd Filetype html imap imap <F1> :call polymer_ide#ShowDocumentation()<CR>
+"
+"" Show error under cursor {F2} key: >
+"
+"	 autocmd Filetype html nmap <F2> :call polymer_ide#ShowError(line('.'))<CR>
+"	 autocmd Filetype html imap <F2> :call polymer_ide#ShowError(line('.'))<CR>
+"
+"" Show next error under cursor {Ctrl}, {Alt} and {down} keys: >
+"
+"	 autocmd Filetype html nmap <C-A-DOWN> :call polymer_ide#NextError()<CR>
+"	 autocmd Filetype html imap <C-A-DOWN> :call polymer_ide#NextError()<CR>
+"
+"" Show previous error under cursor {Ctrl}, {Alt} and {up} keys: >
+"
+"	 autocmd Filetype html nmap <C-A-UP> :call polymer_ide#PreviousError()<CR>
+"	 autocmd Filetype html imap <C-A-UP> :call polymer_ide#PreviousError()<CR>
+"
+"" Enable Syntastic support. 
+"" Careful: For successful work required installed plugin Syntastic   >
   let g:polymer_ide#use_syntastic = 1
   let g:syntastic_html_checkers = [ 'polylint']
 
@@ -273,6 +285,8 @@ set laststatus=2                  " Show the status line all the time
 " Vim NerdTree
 map <Leader>n :NERDTreeToggle<CR>
 
+"Js-bueatify
+autocmd FileType html noremap <buffer> <Leader>f :call HtmlBeautify()<cr>
 " Vim-tumx
 " " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
